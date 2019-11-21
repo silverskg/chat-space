@@ -25,12 +25,12 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
-|group_id|string|null: false|
-
+|name|string|null: false|
 ### Association
-- has_many :users, through: :groups_users
+- has_many :users, through: :group_users
 - has_many :messages
+- has_many :group_users
+
 
 
 

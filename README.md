@@ -29,7 +29,7 @@
 |group_id|string|null: false|
 
 ### Association
-- has_many :users
+- has_many :users, through: :groups_users
 - has_many :messages
 
 
@@ -38,11 +38,10 @@
 ## messageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|text||
+|body|text|
 |image|string|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group

@@ -2,5 +2,7 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "flont.scss";
-@import "modules/user";
-@import "modules/group";
+@import "user";
+@import "config/colors.scss";
+@import "modules/flash.scss";
+

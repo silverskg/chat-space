@@ -7,16 +7,19 @@
             = current_user.name 
           %ul.side-header__box__menu
             %li.side-header__box__menu__new-group
-              = link_to "#" do
-                %i.fa.fa-edit
+              = link_to new_group_path  do
+                = icon('fas', 'pen-square', class: 'icon')
             %li.side-header__box__menu__edit-user
-              = link_to  do
-                = icon('fas', 'cog', class: 'icon')
-      .groups
-        = link_to "#" do
-          %div.group
-            %p.group__group-name hoge
-            %p.group__latest-message デュエル
+              = link_to edit_user_path(current_user)  do
+                = icon('fas', 'cog', class: 'icon' )
+        .groups
+          - current_user.groups.each do |group|
+            .group
+              = link_to group_message_path(group) do
+                .group__group-name 
+                  = group.name
+                .group__latest-message 
+                  デッキがまだありません。
   
 
 

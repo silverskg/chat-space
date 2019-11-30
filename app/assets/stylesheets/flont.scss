@@ -52,7 +52,7 @@ padding: 0;
     height: calc(100vh - 100px);
     padding: 20px 20px 0;
     overflow: scroll;
-    display: flex;
+    // display: flex;
 }
   a{
     text-decoration: none;
@@ -101,7 +101,8 @@ padding: 0;
   
   }
   &__edit-btn{
-    height: 40px;
+    height: 38px;
+    width: 38px;
     line-height: 40px;
     padding: 0 20px;
     margin-top: 30px;
@@ -145,43 +146,60 @@ padding: 0;
    margin-bottom: 10px;
  }
  }
+ .new-message{
+  display: none;   
+ }
+ 
  .form{
    height: 70px;
    padding: 20px 40px;
    background-color: #ddd;
  }
+ 
  .form form{
    display: flex;
  }
- .input-box{
+ .form__mask{
    position: relative;
-   width: 100%;
- &__text{
-   height: 50px;
-   width: 900px;
-   padding: 0 40px 0 10px;
-   color: #434a54;
-   border-style: none;
+  //  width: 100%;
  }
- &__image{
+   
+ .form__message{
+  height: 50px;
+  width: 900px;
+  padding: 0 40px 0 10px;
+  color: #434a54;
+  border-style: none;
+
+ }
+//  &__text{
+//    height: 50px;
+//    width: 900px;
+//    padding: 0 40px 0 10px;
+//    color: #434a54;
+//    border-style: none;
+//  }
+
+ .form__mask__image{
    font-size: 1.3rem;
    position: absolute;
    top: 10px;
    right: 10px;
    cursor: pointer;
  }
- &__image__file{
-  display: none;
-}
- }
- .fa{
+//  }
+//  &__image__file{
+//   display: none;
+// }
+ 
+ .icon{
    display: inline-block;
    font-size: inherit;
    text-rendering: auto;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
  }
- .moror{
+ .hidden{
    display: none;
  }
  .submit-btn{
@@ -192,3 +210,6 @@ padding: 0;
    cursor: pointer;
    text-align: center;
  }
+ 
+
+ 

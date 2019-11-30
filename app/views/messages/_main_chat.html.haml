@@ -1,0 +1,60 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      %h2.main-header__left-box__current-group
+        = @group.name
+        -# - @group.users.each do |user|
+        -#   = user.name  
+      %ul.main-header__left-box__member-list 
+        - @members.each do |member|
+          = member.name
+        %li.main-header__left-box__member-list__member 
+          
+       
+    %a.main-header__edit-btn
+      = link_to "Edit", edit_group_path(params[:group_id]),methd: :get
+      
+  .messages
+    = render @messages
+    -# .message
+    -#   .upper-message
+    -#     .upper-message__user-name
+    -#       = message.user.name
+    -#     .upper-message__date
+    -#       = message.created_at.strftime("%y/%m/%d %H:%M") 
+    -#   .lower-message
+    -#     - if message.content.present?
+    -#       %p.lower-message__content
+    -#         = message.content
+    -#     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+
+
+      -# .message__upper-info
+      -#   %p.message__upper-info__talker hoge
+      -#   %p.message__upper-info__date 2019/11/23(Sat) 21:46:29
+      -# %p.message__text デュエル
+ 
+  .form
+    = form_for [@group, @message] do |f|
+      =f.text_field :content, class: 'form__message' , placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'submit-btn'
+
+    %form._message
+      
+      -# %div.input-box
+      -#   %input#message_content.input-box__text{placeholder: "type a message"}
+      -#   %label.input-box__image
+          
+
+          
+          -# %i.fa.fa-image
+          -# %input{type:"file",class:"moror"}
+
+          
+          %input.input-box__image__file
+      -# %input.submit-btn(value="Send")

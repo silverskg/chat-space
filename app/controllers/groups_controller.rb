@@ -18,14 +18,19 @@ class GroupsController < ApplicationController
     end
 
     def update
-      if @group.update(group_params)
-        redirect_to root_path, notice: 'グループを更新しました'
-      else
-        render :edit
+      respond_to do |format|
+        if @group.update(group_params)
+          format.html { redirect_to group_messages_path(@group), notice: 'グループが更新されました。' }
+          # format.json
+        else
+          format.html { render :edit }
+          # format.json
+        end
       end
     end
   
     private
+
     def group_params
       params.require(:group).permit(:name, user_ids: [] )
     end

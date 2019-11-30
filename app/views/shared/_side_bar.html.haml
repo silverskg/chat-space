@@ -12,15 +12,12 @@
             %li.side-header__box__menu__edit-user
               = link_to edit_user_path(current_user)  do
                 = icon('fas', 'cog', class: 'icon' )
-        .groups
-          - current_user.groups.each do |group|
-            .group
-              = link_to group_message_path(group) do
-                .group__group-name 
-                  = group.name
-                .group__latest-message 
-                  デッキがまだありません。
+      .groups
+        - current_user.groups.each do |group|
+          .group
+            = link_to group_messages_path(group) do
+              .group__name 
+                = group.name
+              .group__message
+                = group.show_last_message
   
-
-
-  -# edit_user_path(current_user)

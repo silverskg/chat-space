@@ -17,14 +17,16 @@ class GroupsController < ApplicationController
       end
     end
 
+    def edit
+    end
+
     def update
       respond_to do |format|
         if @group.update(group_params)
           format.html { redirect_to group_messages_path(@group), notice: 'グループが更新されました。' }
-          # format.json
+     
         else
           format.html { render :edit }
-          # format.json
         end
       end
     end

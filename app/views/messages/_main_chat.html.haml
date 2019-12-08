@@ -10,9 +10,11 @@
           = member.name
         %li.main-header__left-box__member-list__member 
           
+          
        
-    %a.main-header__edit-btn
-      = link_to "", edit_group_path(params[:group_id]),methd: :get
+    .main-header__edit-btn 
+      = link_to "Edit", edit_group_path(params[:group_id]),methd: :get
+      
       
   .messages
     = render @messages

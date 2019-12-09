@@ -10,16 +10,14 @@ $(function(){
      image = (message.image) ? `<img class="lower-message__image" src=${message.image} >` : "";
       var html = 
           `<div class="message" data-message-id="${message.id}">
-              <div class="upper-message">
+              <div class="upper-message__user-name">
                 ${message.user_name}
               </div>
               <div class="upper-message__date">
                 ${message.date} 
               </div>
             <div class="lower-message">
-             <p class="lower-message__content">
                  ${message.content}
-             </p>
             </div>
             ${image}  
           </div>`
@@ -39,7 +37,8 @@ $(function(){
     })
     .done(function(message){
       var html = buildHTML(message)
-      $('div').animate({scrollTop: $('.messages').height()})
+      // $('.messages').animate({scrollTop: $('.messages')[0].height()})
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
       $('.messages').append(html)
       $('form')[0].reset();
     })
@@ -64,7 +63,7 @@ $(function(){
         messages.forEach(function (message) {
         insertHTML = buildHTML(message);
         $('.messages').append(insertHTML); 
-        $('div').animate({scrollTop: $('.messages').height()})
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight});
         })
       })
       .fail(function() {

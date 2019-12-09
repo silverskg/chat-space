@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
    def index 
-    retun nil if params[:keyword] == ""
+    return nil if params[:keyword] == ""
     @users = User.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id)
     respond_to do |format|
     format.html
@@ -25,3 +25,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email)
   end
 end
+
+
+
+
+
